@@ -1,0 +1,250 @@
+/* General styles */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #2e2d2d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#model-container {
+  width: 100vw;
+  height: 100vh;
+  background: black; /* just for visibility */
+  overflow: hidden;
+}
+
+/* scribble dog: styles */
+.scribble-dog {
+  position: fixed;
+  left: 1rem;
+  bottom: 5.75rem;
+  width: 440px;
+  max-width: calc(100vw - 2rem);
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+  transform-origin: 28% 100%;
+}
+
+.scribble-dog svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.scribble-dog-hit-area {
+  fill: transparent;
+  pointer-events: all;
+}
+
+.scribble-dog-bubble {
+  opacity: 0;
+  pointer-events: none;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.scribble-dog-bubble text {
+  fill: currentColor;
+  font-family: Arial, sans-serif;
+  font-size: 46px;
+  font-weight: 900;
+}
+
+.scribble-dog.is-barking {
+  animation: scribble-dog-hop 0.35s ease-out;
+}
+
+.scribble-dog.is-barking .scribble-dog-bubble {
+  animation: scribble-dog-bubble 1.6s ease-out both;
+}
+
+.scribble-dog:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+@keyframes scribble-dog-hop {
+  0% { transform: scale(1, 1); }
+  35% { transform: translateY(5%) scale(1.08, 0.9); }
+  70% { transform: translateY(-9%) scale(0.94, 1.08); }
+  100% { transform: scale(1, 1); }
+}
+
+@keyframes scribble-dog-bubble {
+  0% { opacity: 0; transform: scale(0.75); }
+  14% { opacity: 1; transform: scale(1.08); }
+  22% { opacity: 1; transform: scale(1); }
+  78% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.96); }
+}
+
+@media (max-width: 600px) {
+  .scribble-dog {
+    left: 0.75rem;
+    bottom: 5.25rem;
+    width: 320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scribble-dog.is-barking {
+    animation: none;
+  }
+}
+
+
+/* Bottom nav bar */
+#bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-top: 2px solid black;
+  z-index: 100;
+}
+
+.nav-left {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: black;
+  border: 2px solid black;
+  padding: 0.5rem 1rem;
+}
+
+.nav-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-button {
+  background: none;
+  border: 2px solid black;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: black;
+  cursor: pointer;
+}
+
+.popup > div[id*="popup"] {
+  background-color: white;
+  border: 2px solid black;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.286);
+  display: flex;
+  flex-direction: column;
+}
+
+.popup > div[id*="popup"] p {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+}
+
+/* Popup */
+#about-popup {
+  position: absolute;
+  top: 50px;
+  left: 200px;
+  width: 300px;
+  height: 200px;
+  z-index: 100;
+  max-width: 300px;
+}
+
+/* Popup */
+#work-popup {
+  position: absolute;
+  top: 100px;
+  left: 300px;
+  z-index: 100;
+  max-width: 300px;
+}
+
+/* Popup */
+#contact-popup {
+  position: absolute;
+  top: 150px;
+  left: 400px;
+  z-index: 100;
+  max-width: 300px;
+}
+
+/* Hide initially */
+.hidden {
+  display: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+}
+
+.close-btn:hover {
+  cursor: pointer;
+  border: 1px solid black;
+}
+#blog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: white;
+  color: black;
+}
+
+/* Footer styles */
+footer {
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Blog styles */
+
+.blog-section {
+  padding: 40px 40px;
+  margin: 10vh 10vh;
+}
+
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto 10px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.blog-headline {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.blog-date {
+  text-align: center;
+}
+
+.blog-article {
+  padding: 10px;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rks PAGE</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.min.js" integrity="sha512-n8IpKWzDnBOcBhRlHirMZOUvEq2bLRMuJGjuVqbzUJwtTsgwOgK5aS0c1JA647XWYfqvXve8k3PtZdzpipFjgg==" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+    <main>  
+        <section>
+            <div id="model-container"></div>
+            <!-- scribble dog: markup -->
+            <div class="scribble-dog" id="scribble-dog" role="button" tabindex="0" aria-label="Make the scribble dog bark">
+                <svg viewBox="60 20 720 520" aria-hidden="true" focusable="false">
+                    <defs>
+                        <filter id="scribble-dog-wobble" x="-5%" y="-5%" width="110%" height="110%">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="2" seed="4" result="n"/>
+                            <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+                        </filter>
+                    </defs>
+                    <rect class="scribble-dog-hit-area" x="60" y="200" width="420" height="340"/>
+                    <g class="scribble-dog-lines" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" filter="url(#scribble-dog-wobble)">
+                        <path d="M 272 292 C 262 240, 330 222, 366 254 C 398 262, 442 282, 440 314 C 438 346, 396 354, 360 346 C 336 366, 284 362, 270 322 C 266 310, 269 300, 272 292 Z"/>
+                        <path d="M 312 240 C 276 224, 244 252, 250 312 C 263 324, 292 302, 303 268"/>
+                        <path d="M 296 346 C 240 376, 182 400, 122 424"/>
+                        <path d="M 122 424 C 92 402, 80 380, 96 354"/>
+                        <path d="M 128 422 L 106 516"/>
+                        <path d="M 130 421 L 162 510"/>
+                        <path d="M 233 386 L 219 506"/>
+                        <path d="M 234 386 L 283 490"/>
+                    </g>
+                    <path d="M 356 286 L 376 286" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/>
+                    <ellipse cx="436" cy="312" rx="11" ry="9" fill="currentColor"/>
+                    <g class="scribble-dog-bubble" aria-hidden="true">
+                        <g fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" filter="url(#scribble-dog-wobble)">
+                            <path d="M 474 138 C 500 66, 640 28, 722 56 C 776 82, 764 152, 702 182 C 632 212, 522 208, 472 176"/>
+                            <path d="M 408 246 C 424 234, 442 246, 430 262"/>
+                            <path d="M 446 206 C 462 194, 480 206, 468 222"/>
+                        </g>
+                        <text x="618" y="112" text-anchor="middle">BARG</text>
+                        <text x="618" y="160" text-anchor="middle">BARG</text>
+                    </g>
+                </svg>
+            </div>
+        </section>
+        <!-- Bottom navigation bar -->
+        <nav id="bottom-nav">
+            <div class="nav-left">BARG!</div>
+            <div class="nav-right">
+            <button class="nav-button" id="about-button">About</button>
+            <button class="nav-button" id="work-button">Work</button>
+            <button class="nav-button" id="contact-button">Contact</button>
+            </div>
+        </nav>
+ 
+        <div class="popup">
+            <div id="about-popup" class="hidden">
+                <button class="close-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                        <line x1="1" y1="1" x2="15" y2="15" stroke="black" stroke-width="2"/>
+                        <line x1="15" y1="1" x2="1" y2="15" stroke="black" stroke-width="2"/>
+                    </svg>
+                </button>
+                <h2>About</h2>
+                <p>
+                    Hey, I’m Rokas — a web developer who’s always pushing to grow beyond just code.  
+                    I enjoy experimenting with creative ideas, learning new skills, and improving every day.  
+                    Let’s collaborate and build something great together!
+                </p>
+            </div>
+            <div id="work-popup" class="hidden">
+                <button class="close-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                        <line x1="1" y1="1" x2="15" y2="15" stroke="black" stroke-width="2"/>
+                        <line x1="15" y1="1" x2="1" y2="15" stroke="black" stroke-width="2"/>
+                    </svg>
+                </button>
+                <h2>Work</h2>
+                <p>Currently working on my projects</p>
+            </div>
+            <div id="contact-popup" class="hidden">
+                <button class="close-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                        <line x1="1" y1="1" x2="15" y2="15" stroke="black" stroke-width="2"/>
+                        <line x1="15" y1="1" x2="1" y2="15" stroke="black" stroke-width="2"/>
+                    </svg>
+                </button>
+                <h2>Contact</h2>
+                <p>My number is +370600*****</p>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="js/script.js">
+</script>
+</html>
