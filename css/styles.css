@@ -154,6 +154,10 @@ body {
   overflow-wrap: break-word;
 }
 
+.popup > div[id*="popup"].hidden {
+  display: none;
+}
+
 /* Popup */
 #about-popup {
   position: absolute;
